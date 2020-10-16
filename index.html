@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S10Project</title>
-</head>
-<body>
+    <link rel="stylesheet" href="index.css">
     
+</head>
+
+<body>
+    <article class="vote">
+        <section class="vote__link">
+            <button>Ver candidatos</button>
+            <button>Ver votaciones</button>
+        </section>
+        <section class="vote__body">
+            <h1 >LAPSUS NAPOLEÓN FRANCO</h1>
+            <p>Regístre el candidato para la encuesta</p>
+            <div class="vote__candidate">
+                <input type="text" placeholder="ID">
+                <input type="text" placeholder="Nombre">
+                <button>Registrar</button>
+            </div>
+           
+            <p>Vota por el candidato usando su ID</p>
+            <div class="vote__uservote">
+                <input type="text" placeholder="UserID">
+                <button>Votar</button>
+            </div>
+            
+        </section>
+
+    </article>
 </body>
+
 </html>
