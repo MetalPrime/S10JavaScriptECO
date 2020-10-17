@@ -1,16 +1,67 @@
+@import '_reset.scss';
+
 .vote{
     width: 100%;
+    padding: 20px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     &__link{
         position: absolute;
         display: flex;
         flex-direction: column;
-        right: 0;
+        right: 20px;
+        top: 20px;
     }
 
     &__body{
         display: flex;
         flex-direction: column;
+        align-items: center;
+        h1{
+            font-size: 32px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 15px 15px;
+        }
+
+        p{
+            font-size: 24px;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
     }
+
+    &__candidate{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__uservote{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        
+    }
+
+
+
+
+}
+
+button{
+    
+    width: 150px;
+    color: whitesmoke;
+    background-color: blue;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+input{
+    width: 300px;
+    padding: 5px;
+    margin: 15px 0;
 }
