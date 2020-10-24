@@ -43,7 +43,7 @@ btnRegister.addEventListener("click", function () {
 
 
 //Votar por los candidatos
-btnVotation.addEventListener("click", function () {
+btnVote.addEventListener("click", function () {
 
   objVote = {
     IDVote: inputIDvote.value,
@@ -77,16 +77,63 @@ btnCandidate.addEventListener("click", function () {
 
 //Puntajes en porcentajes visibles
 btnVotation.addEventListener("click", function () {
+  var candidateID = [];
+  var votesID = [];
+  var listCurrentVotes = [];
+  var totalVotes;
+  var numberVotes;
+  var porcentaje;
 
+  database.ref('candidates').on('value', candidates => {
+    candidates.forEach(
+      candidate =>{
+        candidateID.push(candidate.val());
+      }
+    )
+   
+  });
+
+  database.ref('votes').on('value', votes => {
+    votes.forEach(
+      vote =>{
+        votesID.push(vote.val());
+
+      }
+    );
+
+    totalVotes =  votesID.length;
+    
+    candidateID.forEach(candidate=>{
+      numberVotes = 0;
+      console.log(candidate.ID);
+      console.log(candidateID);
+      votesID.forEach(vote=>{
+        if(candidate.ID == vote.IDVote){
+          numberVotes ++;
+        }
+      });
+
+      if(numberVotes!=0){
+        porcentaje = (numberVotes/totalVotes)*100;
+      }
+
+      listCurrentVotes.push(candidate.name +" "+porcentaje+"%"+"\n");
+    });
+
+    alert(listCurrentVotes);
+  });
+ 
+
+   
+    
+
+  
 });
 
 
 
 
-/*database.ref('votes').transaction( candidates => {
-  //candidate && (candidates['pepito'] += 1);
-  return candidates;
-})
+/*
 
 database.ref('votes').set( {
   pepito: 0,
